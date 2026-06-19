@@ -1,5 +1,16 @@
 const TelegramBot = require("node-telegram-bot-api");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const http = require("http");
+
+const PORT = process.env.PORT || 3000;
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Bot ishlayapti! 🤖");
+  })
+  .listen(PORT, () => {
+    console.log(`Web server ${PORT} portda ishga tushdi`);
+  });
 
 const TELEGRAM_TOKEN = "8962392210:AAHdQx8eFO2gow9KBD0YpIVDEHYvyFHW2E4";
 const GEMINI_API_KEY = "AIzaSyAQ.Ab8RN6KSM7KnRorbhmPrY_IzhFkGozBCcyvl5ug0MRMaYZmTAw";
